@@ -17,7 +17,13 @@ Page({
   },
   onLoad: function (options) {
     this.setData({
-      drivername:options.name
+      drivername:options.driverName,
+      cartype:options.carType,
+      departure:options.departure,
+      starttime:options.startTime,
+      destination:options.destination,  
+      price:options.price,
+      remainseat:options.remainSeat,
     })
 
     if (app.globalData.userInfo) {
@@ -46,18 +52,6 @@ Page({
         }
       })
     }
-    wx.request({
-      url:"http://localhost:3000/rideinfo?id=12345",
-      data: {
-        
-      },
-      header: {
-        'content-type':'application/json'
-      },
-      success: function(res){
-        this.setData({rideUserInfo:res.data})
-
-    })
   },
 
   getUserInfo: function(e) {
